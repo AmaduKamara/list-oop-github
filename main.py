@@ -1,8 +1,8 @@
 # Patient Class
 class Patient:
-    def __init__(self, name, patient_id, age, gender, diagnosis):
-        self.name = name
+    def __init__(self, patient_id, name, age, gender, diagnosis):
         self.patient_id = patient_id
+        self.name = name
         self.age = age
         self.gender = gender
         self.diagnosis = diagnosis
@@ -15,3 +15,43 @@ class Patient:
         print(f"Gender: {self.gender}")
         print(f"Diagnosis: {self.diagnosis}")
 
+
+# Hospital Class
+
+
+class Hospital:
+    def __init__(self, hospital_name):
+        self.hospital_name = hospital_name
+
+        self.patients = []
+
+    def add_patient(self, patient):
+        self.patients.append(patient)
+        print("Patient added successfully")
+
+    def display_patients(self):
+        print("\n ********** All Patients **********")
+        print(f"\n ***** {self.hospital_name} *****")
+
+        # Check if there are patients
+        if len(self.patients) == 0:
+            print("No Patients Records Found.")
+        else:
+            for patient in self.patients:
+                patient.display_info()
+
+# Pateint Objects
+patient1 = Patient(101, "Saidu", 23, "Male", "Poverty")
+patient2 = Patient(102, "Abu Turay", 30, "Male", "Malaria")
+patient3 = Patient(103, "Yabom Turay", 21, "Female", "Headache")
+
+# Hospital Object
+hospital = Hospital("Donald Clinic")
+
+# Add patient to the hospital using the add_patient method in the Hospital class
+hospital.add_patient(patient1)
+hospital.add_patient(patient2)
+hospital.add_patient(patient3)
+
+# Display all patients records in the hospital
+hospital.display_patients()
